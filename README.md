@@ -37,3 +37,11 @@ As highlighted in the above points, the separation of concerns, splitting featur
 - With the features modules growing over time, core and design system will have logic and components which will be only common to few modules but not all. 
 - Working on a feature will require additional setting up to be done in DI, repositories and data sources before starting work on it which may become repetitive. 
 - Navigation across features could become tricky and will require additional logic such as using a navigator.
+
+# How to run the application
+
+> Open local.properties & Set 'base_url="https://fakestoreapi.com/"'
+
+# Screens
+
+<img src="https://user-images.githubusercontent.com/3756119/231513140-009b6443-5bde-4f7d-a271-bbbbcda2b7fc.png" width=300/>
