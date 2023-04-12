@@ -1,0 +1,17 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+
+apply from: '../gradle-scripts/common-library.gradle'
+
+android {
+    namespace 'com.example.kishath.productlist'
+}
+
+dependencies {
+    implementation project(path: ':shared-core')
+    implementation project(path: ':shared-designsystem')
+    testImplementation project(path: ':shared-testutils')
+    androidTestImplementation project(path: ':shared-testutils')
+}

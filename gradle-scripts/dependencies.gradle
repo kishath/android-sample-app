@@ -1,0 +1,64 @@
+ext {
+    retrofit_version = '2.9.0'
+    coroutines_version = '1.6.4'
+    mockk_version = '1.13.3'
+    hilt_version = '2.44'
+
+    libraries = [
+            //Core
+            android_core            : ["androidx.core:core-ktx:1.10.0"],
+            android_core_test       : ["androidx.test:core-ktx:1.5.0"],
+            appcompat               : ["androidx.appcompat:appcompat:1.6.1"],
+            test_runner             : ["androidx.test:runner:1.5.2"],
+            coroutines              : ["org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"],
+            lifecycle               : ["androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"],
+            lifecycle_viewmodel     : ["androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"],
+
+            //UI
+            material                : ["com.google.android.material:material:1.8.0"],
+
+            //Compose
+            compose_activity        : ["androidx.activity:activity-compose:1.7.0"],
+            compose_ui              : ["androidx.compose.ui:ui:$compose_version"],
+            compose_preview         : ["androidx.compose.ui:ui-tooling-preview:$compose_version"],
+            compose_material3       : ["androidx.compose.material3:material3:1.1.0-beta01"],
+            compose_navigation      : ["androidx.navigation:navigation-compose:2.5.3"],
+            coil                    : ["io.coil-kt:coil-compose:2.3.0"],
+
+            //Dependency injection
+            hilt                    : ["com.google.dagger:hilt-android:$hilt_version"],
+            hilt_compiler           : ["com.google.dagger:hilt-compiler:$hilt_version"],
+            hilt_navigation_compose : ["androidx.hilt:hilt-navigation-compose:1.0.0"],
+
+
+            //Networking
+            retrofit                : ["com.squareup.retrofit2:retrofit:$retrofit_version"],
+            retrofit_converter      : ["com.squareup.retrofit2:converter-gson:$retrofit_version"],
+            http_logging_intercepter: ["com.squareup.okhttp3:logging-interceptor:4.10.0"]
+    ]
+
+    debugLibraries = [
+            compose_ui_tooling : ["androidx.compose.ui:ui-tooling:$compose_version"],
+            compose_ui_manifest: ["androidx.compose.ui:ui-test-manifest:$compose_version"],
+    ]
+
+    testLibraries = [
+            junit           : ["junit:junit:4.13.2"],
+            mockk           : ["io.mockk:mockk:$mockk_version"],
+            couroutines_test: ["org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4"],
+            androidx_test   : ["androidx.arch.core:core-testing:2.2.0"],
+            turbine         : ["app.cash.turbine:turbine:0.12.1"]
+    ]
+
+    androidTestLibraries = [
+            junit_android     : ["androidx.test.ext:junit:1.1.5"],
+            espresso_core     : ["androidx.test.espresso:espresso-core:3.5.1"],
+            hilt_test         : ["com.google.dagger:hilt-android-testing:$hilt_version"],
+            hilt_test_compiler: ["com.google.dagger:hilt-android-compiler:$hilt_version"],
+            mockk_android     : ["io.mockk:mockk-android:$mockk_version"],
+            mockk_agent       : ["io.mockk:mockk-agent:$mockk_version"],
+            compose_junit     : ["androidx.compose.ui:ui-test-junit4:$compose_version"],
+            nano_httpd        : ["org.nanohttpd:nanohttpd:2.3.1"],
+            waitility         : ["org.awaitility:awaitility:4.2.0"]
+    ]
+}

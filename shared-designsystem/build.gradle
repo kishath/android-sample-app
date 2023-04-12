@@ -1,0 +1,14 @@
+plugins {
+    id 'com.android.library'
+}
+
+apply from: '../gradle-scripts/common-library.gradle'
+
+android {
+    namespace 'com.example.kishath.designsystem'
+}
+
+dependencies {
+    implementation libraries.material
+    androidTestImplementation project(path: ':shared-testutils')
+}

@@ -1,0 +1,83 @@
+apply plugin: 'kotlin-kapt'
+apply plugin: 'org.jetbrains.kotlin.android'
+apply plugin: 'com.google.dagger.hilt.android'
+
+android {
+    compileSdkVersion project.ANDROID_COMPILE_SDK_VERSION
+
+    defaultConfig {
+        minSdkVersion project.ANDROID_MIN_SDK_VERSION
+        targetSdkVersion project.ANDROID_TARGET_SDK_VERSION
+
+        testInstrumentationRunner "com.example.kishath.testutils.HiltTestRunner"
+
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.4.0'
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1,LICENSE.md,LICENSE-notice.md}'
+        }
+    }
+}
+
+kapt {
+    correctErrorTypes true
+}
+
+dependencies {
+    implementation libraries.android_core
+    implementation libraries.android_core_test
+    implementation libraries.appcompat
+    implementation libraries.coroutines
+    implementation libraries.lifecycle
+    implementation libraries.lifecycle_viewmodel
+    implementation libraries.test_runner
+
+    implementation libraries.hilt
+    kapt libraries.hilt_compiler
+
+    implementation libraries.retrofit
+    implementation libraries.retrofit_converter
+    implementation libraries.http_logging_intercepter
+
+    testImplementation testLibraries.junit
+    testImplementation testLibraries.mockk
+    testImplementation testLibraries.couroutines_test
+    testImplementation testLibraries.androidx_test
+    testImplementation testLibraries.turbine
+
+    androidTestImplementation androidTestLibraries.junit_android
+    androidTestImplementation androidTestLibraries.espresso_core
+    androidTestImplementation androidTestLibraries.hilt_test
+    androidTestImplementation androidTestLibraries.mockk_android
+    androidTestImplementation androidTestLibraries.mockk_agent
+    kaptAndroidTest androidTestLibraries.hilt_test_compiler
+
+    implementation libraries.compose_activity
+    implementation libraries.compose_ui
+    implementation libraries.compose_preview
+    implementation libraries.compose_material3
+    implementation libraries.compose_navigation
+    implementation libraries.hilt_navigation_compose
+    implementation libraries.coil
+
+    androidTestImplementation androidTestLibraries.compose_junit
+    debugImplementation debugLibraries.compose_ui_tooling
+    debugImplementation debugLibraries.compose_ui_manifest
+}

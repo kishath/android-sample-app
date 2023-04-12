@@ -1,0 +1,24 @@
+plugins {
+    id 'com.android.library'
+}
+
+apply from: '../gradle-scripts/common-library.gradle'
+
+android {
+    namespace 'com.example.kishath.core'
+
+    buildTypes {
+        def BASE_URL = "BASE_URL"
+        def API_TOKEN = "API_TOKEN"
+
+        debug {
+            buildConfigField "String", BASE_URL, project.LOCAL_BASE_URL != null ? project.LOCAL_BASE_URL : "\"https://needs_to_define_base_url_in_local.properties_file/\""
+            buildConfigField "String", API_TOKEN, "\"MDdvamVhMWJ1YTQ0b2F4MTBxNXc1byJ9.nooq43ZkDmA7j0a0YOY4Vw\""
+        }
+        release {
+            buildConfigField "String", BASE_URL, "\"https://prod.works/\""
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}

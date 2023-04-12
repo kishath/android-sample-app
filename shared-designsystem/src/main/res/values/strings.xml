@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_item_button_text">Try again</string>
+    <string name="error_item_title">There was an error</string>
+    <string name="loading_item_title">Loading</string>
+</resources>

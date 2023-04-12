@@ -1,0 +1,31 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+apply from: '../gradle-scripts/common-library.gradle'
+
+android {
+    namespace 'com.kishath.examples.template'
+
+    defaultConfig {
+        applicationId "com.kishath.examples.template"
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation project(path: ':shared-core')
+    implementation project(path: ':shared-designsystem')
+    implementation project(path: ':feature-product-list')
+    testImplementation project(path: ':shared-testutils')
+}
+

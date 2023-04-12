@@ -1,0 +1,39 @@
+buildscript {
+    ext {
+        kotlin_version = '1.8.0'
+        compose_version = '1.4.0'
+    }
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.google.dagger:hilt-android-gradle-plugin:2.44"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+plugins {
+    id 'com.android.application' version '7.4.2' apply false
+    id 'com.android.library' version '7.4.2' apply false
+    id 'org.jetbrains.kotlin.android' version '1.8.0' apply false
+    id 'com.google.dagger.hilt.android' version '2.44' apply false
+
+}
+apply from: 'gradle-scripts/dependencies.gradle'
+
+project.ext {
+    ANDROID_COMPILE_SDK_VERSION = 33
+    ANDROID_MIN_SDK_VERSION = 21
+    ANDROID_TARGET_SDK_VERSION = 33
+}
+
+def serverConfig = rootProject.file("local.properties")
+def configProperties = new Properties()
+if (serverConfig.exists()) {
+    configProperties.load(new FileInputStream(serverConfig))
+}
+
+project.ext {
+    LOCAL_BASE_URL = configProperties['base_url']
+}

@@ -1,0 +1,18 @@
+plugins {
+    id 'com.android.library'
+}
+
+apply from: '../gradle-scripts/common-library.gradle'
+
+android {
+    namespace 'com.example.kishath.testutils'
+}
+
+dependencies {
+    implementation androidTestLibraries.nano_httpd
+    implementation androidTestLibraries.espresso_core
+    implementation androidTestLibraries.hilt_test
+    kapt androidTestLibraries.hilt_test_compiler
+    implementation androidTestLibraries.waitility
+    implementation androidTestLibraries.compose_junit
+}
